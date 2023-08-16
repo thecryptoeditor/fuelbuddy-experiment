@@ -23,7 +23,7 @@
                     />
                 </div>
 
-                <div class='password group mb-4'>
+                <div class='password group mb-4 mt-4'>
                     <label 
                         class="block text-gray-700 text-sm mb-2" 
                         for="password"

@@ -33,17 +33,18 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	console.log('store')
+
     if (!unAuthenticatedRoutes.includes(to.name)) {
 		next({ name: 'LogIn' });
-		} 
-		// else if (unAuthenticatedRoutes.includes(to.name) && store.getters.user.username) {
-			//     next({ name: 'Dashboard' });
-			// } 
-			else {
-				    next();
-				}
-				console.log('store1')
+	} 
+	// else if (unAuthenticatedRoutes.includes(to.name) && store.getters.user.username) {
+	// else if (unAuthenticatedRoutes.includes(to.name)) {
+		// next({ name: 'Dashboard' });
+	// } 
+	else {
+		next();
+	}
+
 });
 
 export default router;
