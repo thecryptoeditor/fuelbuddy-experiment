@@ -1,28 +1,45 @@
 # fuelbuddy-experiment
 
-This template should help get you started developing with Vue 3 in Vite.
+This fuel buddy experiment features user authentication using Firebase, UI with TailwindCSS, state management with Pinia, and component documentation using Storybook.
 
-## Recommended IDE Setup
+ ## Features
+- Vue 3: The progressive JavaScript framework.
+- Vite: Build tool that aims to provide a faster and leaner development experience for modern web projects.
+- TailwindCSS: A utility-first CSS framework packed with classes that help you design without leaving your HTML.
+- Firebase: Platform developed by Google for creating mobile and web applications.
+- Pinia: Intuitive, type safe, light and flexible Store for Vue using the Composition API.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
+ # Installation
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+ ### 1. Clone the repository:
 
-## Project Setup
+ ```
+git clone https://github.com/thecryptoeditor/fuelbuddy-experiment
+cd my-vue-app
+ ```
+
+ ### 2. Install the dependencies:
+
+ ```
+ npm install
+ ```
+
+
+ ### 3. Run the application:
+
+ ```sh
+ npm run dev
+ ```
+
+ # Testing
+Run the tests with:
 
 ```sh
-npm install
+npm test
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
+# Deployment (Compile and Minify for Production)
 
 ```sh
 npm run build
