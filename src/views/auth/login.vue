@@ -54,30 +54,37 @@
             </div>
         </div>
     </div>
-  </template>
+</template>
   
-  <script>
-  import { ref } from 'vue';
-//   import { useStore } from '../store'; // Pinia store
-//   import firebase from 'firebase/app';
-//   import 'firebase/auth';
+<script>
+
+    import { ref } from 'vue';
+    // import { useStore } from '../store'; // Pinia store
+    // import firebase from 'firebase/app';
+    // import 'firebase/auth';
   
-  export default {
-    setup() {
-      const email = ref('');
-      const password = ref('');
-      const store = useStore();
+    export default {
+        name: "LogIn",
+        title: "FuelBuddy - Login",
+
+        login() {
+
+            const email = ref('');
+            const password = ref('');
+            const store = useStore();
   
-      const login = async () => {
-        try {
-          const userCredential = await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
-          store.setUser(userCredential.user);
-        } catch (error) {
-          console.error("Error logging in:", error);
-        }
-      };
+            const login = async () => {
+            
+            try {
+                const userCredential = await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
+                store.setUser(userCredential.user);
+            }
+            catch (error) {
+                console.error("Error logging in:", error);
+            }
+        };
   
-      return { email, password, login };
+        return { email, password, login };
     }
   }
   </script>

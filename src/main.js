@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import axios from "axios";
-import { useStore } from './stores'; // Pinia store
+// import { useStore } from './stores'; // Pinia store
 
-const store = useStore();
+// const store = useStore();
 
 // styles main file imported from styles folder
 import "./assets/styles/index.scss";
@@ -58,6 +58,6 @@ app.config.globalProperties.axios = axios;
 
 app.use(createPinia())
 app.use(router)
-app.use(store)
+// app.use(store)
 
 app.mount('#app')
