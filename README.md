@@ -1,6 +1,6 @@
 # fuelbuddy-experiment
 
-This fuel buddy experiment features user authentication using Firebase, UI with TailwindCSS, state management with Pinia, and component documentation using Storybook.
+The Fuel Buddy experiment showcases user authentication through Firebase, a user interface designed with TailwindCSS, state management powered by Pinia, and component documentation created using Storybook.
 
  ## Features
 - Vue 3: The progressive JavaScript framework.
