@@ -1,6 +1,12 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
 import axios from "axios";
+
+// Pinia store configuration
+import { createPinia } from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
 
 // styles main file imported from styles folder
 import "./assets/styles/index.scss";
@@ -8,8 +14,6 @@ import "./assets/styles/index.scss";
 // Firebase configuration configuration
 // import firebase from 'firebase/app';
 import 'firebase/database'
-
-// import store from "./stores";
 
 import App from './App.vue'
 import router from './router'
@@ -66,8 +70,7 @@ const app = createApp(App)
 
 app.config.globalProperties.axios = axios;
 
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
-// app.use(store)
 
 app.mount('#app')

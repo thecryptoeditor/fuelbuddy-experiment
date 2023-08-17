@@ -1,6 +1,7 @@
+<script setup>
+import { RouterView } from 'vue-router'
+</script>
+
 <template>
-	<div class="app-content">
-		<router-view />
-	</div>
+  <RouterView />
 </template>
-  

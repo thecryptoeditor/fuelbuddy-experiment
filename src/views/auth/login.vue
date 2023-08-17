@@ -75,17 +75,18 @@
   
             const login = async () => {
             
-            try {
-                const userCredential = await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
-                store.setUser(userCredential.user);
-            }
-            catch (error) {
-                console.error("Error logging in:", error);
-            }
-        };
+                try {
+                    const userCredential = await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
+                    store.setUser(userCredential.user);
+                }
+                catch (error) {
+                    console.error("Error logging in:", error);
+                }
+            };
   
-        return { email, password, login };
+            return { email, password, login };
+        }
     }
-  }
-  </script>
+
+</script>
   

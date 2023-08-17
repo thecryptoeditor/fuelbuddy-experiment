@@ -1,50 +1,59 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import LogIn from "../views/auth/LogIn.vue";
+import LogIn from "@/views/auth/LogIn.vue";
+
+import { useUserStore } from '../stores';
 
 const unAuthenticatedRoutes = [
-    "LogIn",
+    "LogIn"
 ];
 
+
 const router = createRouter({
-    history: createWebHistory(),
-    linkActiveClass: "active",
-    linkExactActiveClass: "exact-active",
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: "/",
-            redirect: "/login"
+            name: "LogIn",
+            component: LogIn,
         },
         {
             path: "/login",
             name: "LogIn",
-            component: LogIn,
-            meta: { transitionName: "slide" }
+            component: () => import('@/views/auth/LogIn.vue'),
+            meta: { requiresAuth: true }
         },
         {
             path: "/dashboard",
             name: "Dashboard",
-            component: () =>
-            import("../views/visuals/Dashboard.vue"),
-            meta: { 
-                transitionName: "slide",
-            }
+            component: () => import('@/views/visuals/Dashboard.vue'),
+            meta: { requiresAuth: true }
         }
     ]
-});
+})
+
 
 router.beforeEach((to, from, next) => {
+    
+    const store = useUserStore();
 
-    if (!unAuthenticatedRoutes.includes(to.name)) {
-		next({ name: 'LogIn' });
-	} 
-	// else if (unAuthenticatedRoutes.includes(to.name) && store.getters.user.username) {
-	// else if (unAuthenticatedRoutes.includes(to.name)) {
-		// next({ name: 'Dashboard' });
-	// } 
-	else {
-		next();
-	}
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+
+        if (to.name == 'login' && (unAuthenticatedRoutes.indexOf(to.name) > -1) && store.isUserLogin == false) {  // Assuming you have an `isUserAuthenticated` function
+            next('/login');  // Redirect to login page
+        } 
+        else if (to.name == 'dashboard' && !(unAuthenticatedRoutes.indexOf(to.name) > -1) && store.isUserLogin == true) {  // Assuming you have an `isUserAuthenticated` function
+            next('/dashboard');  // Redirect to dashboard page
+        } 
+        else {
+            next();  // Allow access
+        }
+
+    } 
+    else {
+        next();  // If the route doesn't require authentication, allow access
+    }
 
 });
+  
 
 export default router;
