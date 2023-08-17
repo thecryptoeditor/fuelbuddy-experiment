@@ -70,22 +70,18 @@
         title: "FuelBuddy - Login",
 
 
-        methods: {
+        setup() {
 
-            login() {
+            const email = ref('');
+            const password = ref('');
+            const store = useUserStore();
+            
+            const login = async () => {
 
-                alert('Login')
-
-                const email = ref('');
-                const password = ref('');
-                const store = useUserStore();
-
-                store.setLoginAuth(true);
-
-                console.log('store', store.isUserLogin);
-
-                // if(store.isUserLogin)
-
+                let payload = {email: email.value, password: password.value, isUserLogin: true}
+                                
+                // Dispatching login payload to the store
+                store.login(payload)
 
                     // try {
                     //     const userCredential = await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
@@ -97,7 +93,9 @@
                 // };
 
                 // return { email, password, login };
-            },
+            }
+
+            return { login, email, password }
 
         }
 

@@ -34,10 +34,11 @@ router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
 
         // If isUserLogin false in the store then redirect to the login page `/login` page 
-        if (store.isUserLogin == false) {
+        if (store.userDetails.isUserLogin == false) {
             next('/login');
         } 
         else {
+            console.log('hjkl')
             next(); // Allow access
         }
 

@@ -1,15 +1,73 @@
 <template>
-    <div>
-        <!-- <p>User ID: {{ user.uid }}</p>
-        <p>Name: {{ user.displayName }}</p> -->
+    <div class='auth container m-auto'>
+        <div class='login card w-full max-w-xs m-auto'>
+            <div class=' bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
+                <div class='logo-section mb-4 text-center'>
+                    <p class='text-2xl'>User Details</p>
 
-        <h1>User</h1>
+                    <p class="mt-3">
+                       Email: {{ userInfo.email }}
+                    </p>
 
-        <button @click="logout">Logout</button>
+                    <div class="flex items-center justify-center mt-8">
+                        <button 
+                            class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 w100 rounded focus:outline-none focus:shadow-outline"
+                            type="submit"
+                            @click="logout"
+                        >
+                            Logout
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </template>
   
-<script seturp>
+<script>
+
+    import { ref, reactive } from 'vue';
+    import { useUserStore } from '../../stores';
+    import { storeToRefs } from 'pinia';
+    // import firebase from 'firebase/app';
+    // import 'firebase/auth';
+  
+    export default {
+        name: "Dashboard",
+        title: "FuelBuddy - Dashboard",
+
+
+        setup() {
+
+            let userInfo = reactive({});
+
+            const store = useUserStore();
+            userInfo = store.userDetails;
+
+            
+            const logout = async () => {
+
+                store.logout();
+
+                // Dispatching login payload to the store
+
+                try {
+                    const userCredential = await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
+                    store.setUser(userCredential.user);
+                }
+                catch (error) {
+                    console.error("Error logging in:", error);
+                }
+
+            }
+
+            return { logout, userInfo }
+
+        }
+
+
+    }
 
 </script>
   
