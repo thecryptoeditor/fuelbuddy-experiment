@@ -37,6 +37,9 @@ router.beforeEach((to, from, next) => {
         if (!store.userDetails.isUserLogin) {
             next('/login');
         } 
+        // else if (store.userDetails.isUserLogin) {
+        //     next('/dashboard');
+        // }
         else {
             next(); // Allow access
         }

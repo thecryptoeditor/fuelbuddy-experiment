@@ -27,7 +27,7 @@
   
 <script>
 
-    import { ref, reactive, onMounted } from 'vue';
+    import { reactive } from 'vue';
     import { useUserStore } from '../../stores';
   
     export default {
