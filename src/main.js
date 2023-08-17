@@ -11,10 +11,6 @@ pinia.use(piniaPluginPersistedstate)
 // styles main file imported from styles folder
 import "./assets/styles/index.scss";
 
-// Firebase configuration configuration
-// import firebase from 'firebase/app';
-import 'firebase/database'
-
 import App from './App.vue'
 import router from './router'
 
@@ -44,18 +40,6 @@ axios.interceptors.response.use(
         return Promise.reject(error);
     }
 );
-
-
-// Firebsae intigration
-// const config = {
-//     apiKey: process.env.VUE_APP_apiKey,
-//     authDomain: process.env.VUE_APP_authDomain,
-//     databaseURL: process.env.VUE_APP_databaseURL,
-//     projectId: process.env.VUE_APP_projectId,
-//     storageBucket: process.env.VUE_APP_storageBucket,
-//     messagingSenderId: process.env.VUE_APP_messagingSenderId
-// };
-
 
 
 axios.defaults.withCredentials = true;

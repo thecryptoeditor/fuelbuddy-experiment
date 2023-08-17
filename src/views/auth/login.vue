@@ -62,8 +62,6 @@
 
     import { ref } from 'vue';
     import { useUserStore } from '../../stores';
-    // import firebase from 'firebase/app';
-    // import 'firebase/auth';
   
     export default {
         name: "LogIn",
@@ -77,25 +75,13 @@
             const store = useUserStore();
             
             const login = async () => {
-
-                let payload = {email: email.value, password: password.value, isUserLogin: true}
                                 
                 // Dispatching login payload to the store
-                store.login(payload)
-
-                    // try {
-                    //     const userCredential = await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
-                    //     store.setUser(userCredential.user);
-                    // }
-                    // catch (error) {
-                    //     console.error("Error logging in:", error);
-                    // }
-                // };
-
-                // return { email, password, login };
+                store.login(email.value, password.value);
+                
             }
 
-            return { login, email, password }
+            return { login, email, password, store }
 
         }
 

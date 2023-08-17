@@ -27,11 +27,8 @@
   
 <script>
 
-    import { ref, reactive } from 'vue';
+    import { ref, reactive, onMounted } from 'vue';
     import { useUserStore } from '../../stores';
-    import { storeToRefs } from 'pinia';
-    // import firebase from 'firebase/app';
-    // import 'firebase/auth';
   
     export default {
         name: "Dashboard",
@@ -45,21 +42,8 @@
             const store = useUserStore();
             userInfo = store.userDetails;
 
-            
             const logout = async () => {
-
                 store.logout();
-
-                // Dispatching login payload to the store
-
-                try {
-                    const userCredential = await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
-                    store.setUser(userCredential.user);
-                }
-                catch (error) {
-                    console.error("Error logging in:", error);
-                }
-
             }
 
             return { logout, userInfo }
