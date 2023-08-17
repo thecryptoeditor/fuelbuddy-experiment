@@ -3,11 +3,6 @@ import LogIn from "@/views/auth/LogIn.vue";
 
 import { useUserStore } from '../stores';
 
-const unAuthenticatedRoutes = [
-    "LogIn"
-];
-
-
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -20,7 +15,7 @@ const router = createRouter({
             path: "/login",
             name: "LogIn",
             component: () => import('@/views/auth/LogIn.vue'),
-            meta: { requiresAuth: true }
+            meta: { requiresAuth: false }
         },
         {
             path: "/dashboard",
@@ -38,22 +33,19 @@ router.beforeEach((to, from, next) => {
 
     if (to.matched.some(record => record.meta.requiresAuth)) {
 
-        if (to.name == 'login' && (unAuthenticatedRoutes.indexOf(to.name) > -1) && store.isUserLogin == false) {  // Assuming you have an `isUserAuthenticated` function
-            next('/login');  // Redirect to login page
-        } 
-        else if (to.name == 'dashboard' && !(unAuthenticatedRoutes.indexOf(to.name) > -1) && store.isUserLogin == true) {  // Assuming you have an `isUserAuthenticated` function
-            next('/dashboard');  // Redirect to dashboard page
+        // If isUserLogin false in the store then redirect to the login page `/login` page 
+        if (store.isUserLogin == false) {
+            next('/login');
         } 
         else {
-            next();  // Allow access
+            next(); // Allow access
         }
 
     } 
     else {
-        next();  // If the route doesn't require authentication, allow access
+        next();
     }
 
 });
-  
 
 export default router;
