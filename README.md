@@ -8,6 +8,8 @@ The Fuel Buddy experiment showcases user authentication through Firebase, a user
 - TailwindCSS: A utility-first CSS framework packed with classes that help you design without leaving your HTML.
 - Firebase: Platform developed by Google for creating mobile and web applications.
 - Pinia: Intuitive, type safe, light and flexible Store for Vue using the Composition API.
+- Axios: For better and seemless interface and functionality
+- pinia-plugin-persistedstate: For persistence of store data throughtout the application
 
 
  # Installation

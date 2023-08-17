@@ -21,14 +21,18 @@ export const useUserStore = defineStore('pinia', {
         // A anction will be triggered when the user is logged out
         // This maked store empty as well as store
         async logout() {
+
             await signOut(auth);
+
             this.userDetails.user = null;
-            // this.userDetails.isUserLogin = false;
+
+            this.userDetails.isUserLogin = false;
             localStorage.removeItem('pinia');
             location.reload();
+
         },
 
-        // Pushing the payload to userDetails 
+        // Authenticated by firebase and stored data in stored
         async login(email, password) {
 
             try {
