@@ -9,7 +9,8 @@ The Fuel Buddy experiment showcases user authentication through Firebase, a user
 - Firebase: Platform developed by Google for creating mobile and web applications.
 - Pinia: Intuitive, type safe, light and flexible Store for Vue using the Composition API.
 - Axios: For better and seemless interface and functionality
-- pinia-plugin-persistedstate: For persistence of store data throughtout the application
+- pinia-plugin-persistedstate: For persistence of store data throughtout the application.
+- Storybook: Storybook is a frontend workshop for building UI components and pages in isolation. Thousands of teams use it for UI development, testing, and documentation.
 
 
  # Installation
