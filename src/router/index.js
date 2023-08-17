@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import LogIn from "@/views/auth/LogIn.vue";
 
 import { useUserStore } from '../stores';
 
@@ -9,7 +8,6 @@ const router = createRouter({
         {
             path: "/",
             name: "LogIn",
-            component: LogIn,
         },
         {
             path: "/login",
@@ -37,9 +35,6 @@ router.beforeEach((to, from, next) => {
         if (!store.userDetails.isUserLogin) {
             next('/login');
         } 
-        // else if (store.userDetails.isUserLogin) {
-        //     next('/dashboard');
-        // }
         else {
             next(); // Allow access
         }
