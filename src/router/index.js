@@ -7,7 +7,7 @@ const router = createRouter({
     routes: [
         {
             path: "/",
-            name: "LogIn",
+            redirect: "LogIn",
         },
         {
             path: "/login",
