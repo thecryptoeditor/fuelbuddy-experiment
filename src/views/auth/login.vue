@@ -53,40 +53,22 @@
     </div>
 </template>
   
-<script>
+<script setup>
 
     import { ref } from 'vue';
     import { useUserStore } from '../../stores';
     import CustomButton from '../../components/button.vue';
     import Card from '../../components/card.vue';
-  
-    export default {
-        name: "LogIn",
-        title: "FuelBuddy - Login",
 
-        components: {
-            CustomButton,
-            Card
-        },
-
-        setup() {
-
-            const email = ref('');
-            const password = ref('');
-            const store = useUserStore();
-            
-            const login = async () => {
-                                
-                // Dispatching login payload to the store
-                store.login(email.value, password.value);
-                
-            }
-
-            return { login, email, password, store }
-
-        }
-
-
+    const email = ref('');
+    const password = ref('');
+    const store = useUserStore();
+    
+    const login = async () => {
+                        
+        // Dispatching login payload to the store
+        store.login(email.value, password.value);
+        
     }
 
 </script>

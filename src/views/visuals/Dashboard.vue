@@ -22,38 +22,21 @@
     </div>
 </template>
   
-<script>
+<script setup>
 
     import { reactive } from 'vue';
     import { useUserStore } from '../../stores';
     import CustomButton from '../../components/button.vue';
     import Card from '../../components/card.vue';
-  
-    export default {
-        name: "Dashboard",
-        title: "FuelBuddy - Dashboard",
-
-        components: {
-            CustomButton,
-            Card
-        },
-
-        setup() {
-
-            let userInfo = reactive({});
-
-            const store = useUserStore();
-            userInfo = store.userDetails;
-
-            const logout = async () => {
-                store.logout();
-            }
-
-            return { logout, userInfo }
-
-        }
 
 
+    let userInfo = reactive({});
+
+    const store = useUserStore();
+    userInfo = store.userDetails;
+
+    const logout = async () => {
+        store.logout();
     }
 
 </script>
