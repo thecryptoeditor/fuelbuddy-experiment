@@ -13,20 +13,27 @@ const router = createRouter({
             path: "/login",
             name: "LogIn",
             component: () => import('@/views/auth/LogIn.vue'),
-            meta: { requiresAuth: false }
+            meta: { requiresAuth: false, title: 'Fuelbuddy - Login' }
         },
         {
             path: "/dashboard",
             name: "Dashboard",
             component: () => import('@/views/visuals/Dashboard.vue'),
-            meta: { requiresAuth: true }
+            meta: { requiresAuth: true, title: 'Fuelbuddy - Dashboard' }
         }
     ]
 })
 
 
 router.beforeEach((to, from, next) => {
-    
+
+    const nearestWithTitle = to.matched.find(r => r.meta && r.meta.title);
+
+    if(nearestWithTitle.meta.title) {
+        document.title = nearestWithTitle.meta.title;
+    } 
+
+
     const store = useUserStore();
 
     if (to.matched.some(record => record.meta.requiresAuth)) {
