@@ -56,9 +56,9 @@
 <script setup>
 
     import { ref } from 'vue';
-    import { useUserStore } from '../../stores';
-    import CustomButton from '../../components/button.vue';
-    import Card from '../../components/card.vue';
+    import { useUserStore } from '@/stores';
+    import CustomButton from '@/components/button.vue';
+    import Card from '@/components/card.vue';
 
     const email = ref('');
     const password = ref('');

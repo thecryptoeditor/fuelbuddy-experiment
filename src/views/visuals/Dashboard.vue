@@ -25,9 +25,9 @@
 <script setup>
 
     import { reactive } from 'vue';
-    import { useUserStore } from '../../stores';
-    import CustomButton from '../../components/button.vue';
-    import Card from '../../components/card.vue';
+    import { useUserStore } from '@/stores';
+    import CustomButton from '@/components/button.vue';
+    import Card from '@/components/card.vue';
 
 
     let userInfo = reactive({});
