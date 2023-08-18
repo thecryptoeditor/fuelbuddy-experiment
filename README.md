@@ -20,7 +20,7 @@ The Fuel Buddy experiment showcases user authentication through Firebase, a user
 
  ```
 git clone https://github.com/thecryptoeditor/fuelbuddy-experiment
-cd my-vue-app
+cd fuelbuddy-experiment
  ```
 
  ### 2. Install the dependencies:
